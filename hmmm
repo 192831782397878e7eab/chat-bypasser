@@ -805,7 +805,7 @@ local Button = Tab:CreateButton({
 local customText = "bombаyรtreetรhi〪tter"
 
 local Button = Tab:CreateButton({
-   Name = "smells like wet dog nigga",
+   Name = "bombay street shitter",
    Callback = function()
      sendMessage(customText)
    end,
