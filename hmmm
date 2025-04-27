@@ -1,0 +1,875 @@
+local player = game.Players.LocalPlayer
+local playerHeadIcon = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png"
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))() 
+local Players = game:GetService("Players")
+local playerName = Players.LocalPlayer.DisplayName
+local greetings = {
+   "Hello",
+   "Welcome",
+   "Hi",
+   "Greetings",
+   "Hey there",
+   "Good to see you",
+   "What's up",
+   "Nice to have you here",
+   "Yo",
+   "Ahoy",
+   "Salutations",
+   "Howdy",
+   "Good day",
+   "Pleasure to see you",
+   "Welcome back",
+   "Hey, buddy",
+   "Hello there",
+   "Hiya",
+   "Wassup",
+   "Ello gov'nor"
+}
+
+local randomGreeting = greetings[math.random(1, #greetings)]
+local playerName = Players.LocalPlayer.DisplayName
+
+local currentTime = os.date("%I:%M:%S %p")
+local TextChatService = game:GetService("TextChatService")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local function sendMessage(message)
+    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+    if textChannel then
+        textChannel:SendAsync(message)
+    end
+end
+local customText = ""
+sendMessage(customText)
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/zynlope/rayfield/refs/heads/main/hmmm'))() 
+local title = randomGreeting .. ", " .. playerName .. " - " .. currentTime
+
+local Window = Rayfield:CreateWindow({
+   Name = title,
+   Icon = 85391913891710,
+   LoadingTitle = "zynlope rewrite",
+   LoadingSubtitle = "discord: plusgiant",
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil,
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
+   },
+
+   KeySystem = false,
+   KeySettings = {
+      Title = "hands up nigga",
+      Subtitle = "key system",
+      Note = "contact owner for key        discord: plusgiant",
+      FileName = "zynlope script",
+      SaveKey = false,
+      GrabKeyFromSite = false,
+      Key = {"ngtotheng"}
+   },
+
+   Theme = {
+      TextColor = Color3.fromRGB(240, 240, 240),
+      Background = Color3.fromRGB(15, 15, 15),
+      Topbar = Color3.fromRGB(13, 13, 13),
+      Shadow = Color3.fromRGB(20, 20, 20),
+
+      NotificationBackground = Color3.fromRGB(15, 15, 15),
+      NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
+
+      TabBackground = Color3.fromRGB(20, 20, 20),
+      TabStroke = Color3.fromRGB(85, 85, 85),
+      TabBackgroundSelected = Color3.fromRGB(144, 0, 255),
+      TabTextColor = Color3.fromRGB(255, 255, 255),
+      SelectedTabTextColor = Color3.fromRGB(255, 255, 255),
+
+      ElementBackground = Color3.fromRGB(20, 20, 20),
+      ElementBackgroundHover = Color3.fromRGB(30, 30, 30),
+      SecondaryElementBackground = Color3.fromRGB(25, 25, 25),
+      ElementStroke = Color3.fromRGB(38, 38, 38),
+      SecondaryElementStroke = Color3.fromRGB(40, 40, 40),
+            
+      SliderBackground = Color3.fromRGB(50, 138, 220),
+      SliderProgress = Color3.fromRGB(50, 138, 220),
+      SliderStroke = Color3.fromRGB(58, 163, 255),
+
+      ToggleBackground = Color3.fromRGB(18, 18, 18),
+      ToggleEnabled = Color3.fromRGB(144, 0, 255),
+      ToggleDisabled = Color3.fromRGB(100, 100, 100),
+      ToggleEnabledStroke = Color3.fromRGB(144, 0, 255),
+      ToggleDisabledStroke = Color3.fromRGB(125, 125, 125),
+      ToggleEnabledOuterStroke = Color3.fromRGB(100, 100, 100),
+      ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
+
+      DropdownSelected = Color3.fromRGB(20, 20, 20),
+      DropdownUnselected = Color3.fromRGB(30, 30, 30),
+
+      InputBackground = Color3.fromRGB(20, 20, 20),
+      InputStroke = Color3.fromRGB(65, 65, 65),
+      PlaceholderColor = Color3.fromRGB(178, 178, 178)
+   }
+})
+
+
+
+local Tab = Window:CreateTab("main", 4483362458) -- Title, Image
+local Paragraph = Tab:CreateParagraph({Title = "WARNING:", Content = "Set your account language to Қазақ Тілі for every bypass to work."})
+local TextChatService = game:GetService("TextChatService")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local function sendMessage(message)
+    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+    if textChannel then
+        textChannel:SendAsync(message)
+    end
+end
+
+local function transformText(inputText)
+    -- Replace the specific letters with transformed versions
+    local transformed = inputText:gsub("a", "а")
+    transformed = transformed:gsub("u", "u〪")
+    transformed = transformed:gsub("i", "i〪")
+    transformed = transformed:gsub("n", "ⴖ")
+    transformed = transformed:gsub("s", "ร")
+    
+    local words = {}
+    for word in transformed:gmatch("%S+") do
+        table.insert(words, word)
+    end
+    
+    return table.concat(words, "")
+end
+
+local Input = Tab:CreateInput({
+    Name = "Auto bypasser",
+    CurrentValue = "",
+    PlaceholderText = "message here",
+    RemoveTextAfterFocusLost = true,
+    Flag = "Input1",
+    Callback = function(Text)
+        local transformedText = transformText(Text)
+        local lines = {}
+        table.insert(lines, transformedText)
+
+        for _, line in ipairs(lines) do
+            sendMessage(line)
+            wait(0)
+        end
+    end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Unban voice chat",
+   Callback = function()
+game:GetService("VoiceChatService"):joinVoice()
+ end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Rejoin",
+   Callback = function()
+ game:GetService("TeleportService"):Teleport(game.PlaceId)
+	 wait()
+ 
+ wait();
+ end,
+})
+
+local Section = Tab:CreateSection("other stuff")
+
+local FLYING = false
+
+local function sFLY()
+    FLYING = true
+    repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    local T = game.Players.LocalPlayer.Character.PrimaryPart
+    local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+    local SPEED = 0
+    local BG = Instance.new('BodyGyro')
+    local BV = Instance.new('BodyVelocity')
+
+    BG.P = 9e4
+    BG.Parent = T
+    BV.Parent = T
+    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    BG.cframe = T.CFrame
+    BV.velocity = Vector3.new(0, 0, 0)
+    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+
+    local userInputService = game:GetService("UserInputService")
+
+    local humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+    humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+    humanoid.PlatformStand = true
+
+    userInputService.InputBegan:Connect(function(input, gameProcessed)
+        if gameProcessed then return end
+        if input.UserInputType == Enum.UserInputType.Keyboard then
+            if input.KeyCode == Enum.KeyCode.W then CONTROL.F = 1 end
+            if input.KeyCode == Enum.KeyCode.S then CONTROL.B = -1 end
+            if input.KeyCode == Enum.KeyCode.A then CONTROL.L = -1 end
+            if input.KeyCode == Enum.KeyCode.D then CONTROL.R = 1 end
+            if input.KeyCode == Enum.KeyCode.Space then CONTROL.E = 1 end
+            if input.KeyCode == Enum.KeyCode.LeftControl then CONTROL.Q = -1 end
+        end
+    end)
+
+    userInputService.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Keyboard then
+            if input.KeyCode == Enum.KeyCode.W then CONTROL.F = 0 end
+            if input.KeyCode == Enum.KeyCode.S then CONTROL.B = 0 end
+            if input.KeyCode == Enum.KeyCode.A then CONTROL.L = 0 end
+            if input.KeyCode == Enum.KeyCode.D then CONTROL.R = 0 end
+            if input.KeyCode == Enum.KeyCode.Space then CONTROL.E = 0 end
+            if input.KeyCode == Enum.KeyCode.LeftControl then CONTROL.Q = 0 end
+        end
+    end)
+
+    task.spawn(function()
+    while FLYING do
+        task.wait()
+
+        -- Get camera directions
+        local cam = workspace.CurrentCamera
+        local forward = cam.CFrame.LookVector
+        local right = cam.CFrame.RightVector
+        local up = Vector3.new(0, 1, 0)
+
+        -- Calculate movement direction based on input
+        local moveDir = (forward * (CONTROL.F + CONTROL.B)) + (right * (CONTROL.R + CONTROL.L)) + (up * (CONTROL.E + CONTROL.Q))
+        if moveDir.Magnitude > 0 then
+            moveDir = moveDir.Unit
+            SPEED = 50
+        else
+            SPEED = 0
+        end
+
+        BV.Velocity = moveDir * SPEED
+        BG.CFrame = cam.CFrame
+    end
+
+    -- Cleanup
+    BG:Destroy()
+    BV:Destroy()
+    humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+    humanoid.PlatformStand = false
+end)
+
+end
+
+local function NOFLY()
+    FLYING = false
+    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+        local humanoid = game.Players.LocalPlayer.Character.Humanoid
+        humanoid.PlatformStand = false
+        humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+    end
+end
+
+getgenv().WalkSpeedValue = 25
+local BunnyHopActive = false
+local BunnyHopConnection
+
+local Player = game:GetService("Players").LocalPlayer
+local RunService = game:GetService("RunService")
+local Humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") or Player.CharacterAdded:Wait():WaitForChild("Humanoid")
+
+RunService.Heartbeat:Connect(function()
+    if BunnyHopActive and Humanoid.WalkSpeed ~= getgenv().WalkSpeedValue then
+        Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+    end
+end)
+
+getgenv().WalkSpeedValue = 25
+local BunnyHopActive = false
+local BunnyHopConnection
+
+local Player = game:GetService("Players").LocalPlayer
+local RunService = game:GetService("RunService")
+local Humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") or Player.CharacterAdded:Wait():WaitForChild("Humanoid")
+
+RunService.Heartbeat:Connect(function()
+    if BunnyHopActive and Humanoid.WalkSpeed ~= getgenv().WalkSpeedValue then
+        Humanoid.WalkSpeed = getgenv().WalkSpeedValue
+    end
+end)
+
+local FlyToggle = Tab:CreateToggle({
+    Name = "Fly/Unfly",
+    CurrentValue = false,
+    Flag = "FlyToggle",
+    Callback = function(Value)
+        if Value then
+            if FLYING == false then
+                sFLY()
+            end
+        else
+            if FLYING == true then
+                NOFLY()
+            end
+        end
+    end,
+})
+
+-- Cria o alternador com uma tecla
+local FlyKeybind = Tab:CreateKeybind({
+    Name = "Fly keybind",
+    CurrentKeybind = "F", 
+    HoldToInteract = false,
+    Flag = "FlyKeybind", 
+    Callback = function(Keybind)
+        if FLYING then
+            NOFLY()
+        else
+            sFLY()
+        end
+    end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "Walkspeed",
+   CurrentValue = "",
+   PlaceholderText = "enter walkspeed",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+   getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "Max Camera Zoom",
+   CurrentValue = "",
+   PlaceholderText = "enter zoom",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+        game.Players.LocalPlayer.CameraMaxZoomDistance = (Value)
+
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "Jumppower",
+   CurrentValue = "",
+   PlaceholderText = "enter jumppower",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+ getgenv().JumpPowerValue = Value; --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'JumpPower':Connect(function()
+Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
+end)
+Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "FOV (Original = 70)",
+   CurrentValue = "",
+   PlaceholderText = "enter FOV",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Value)
+        game.Players.LocalPlayer.CameraMaxZoomDistance = (Value)
+
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "CS Resoluiton",
+   Callback = function()
+   getgenv().Resolution = {
+    [".gg/scripters"] = 0.7
+}
+
+local Camera = workspace.CurrentCamera
+if getgenv().gg_scripters == nil then
+    game:GetService("RunService").RenderStepped:Connect(
+        function()
+            Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolution[".gg/scripters"], 0, 0, 0, 1)
+        end
+    )
+end
+getgenv().gg_scripters = "Aori0001"
+   end,
+})
+
+local Tab = Window:CreateTab("normal", "heart") -- Title, Image
+
+local Section = Tab:CreateSection("usual messages")
+
+-- List of messages and their display names
+local messages = {
+    {name = "got discord?", message = "gotdisᲃord?"},
+    {name = "is this retard serious lmao 😭", message = "isthisꞅetardseriouslmao😭"},
+    {name = "wanna hop on vc instead lil nigga?", message = "wannahoponvcinsteadlilⴖigga?"},
+    {name = "u look retarded yet so rapeable..", message = "ulookꞅetardedyetsorаpeable.."},
+    {name = "whats the sauce of being this type of a dumbass?", message = "whatsthesauceofbeingthistypeofadum〪baรร?"},
+    {name = "this nigga gets it", message = "thi〪รⴖi〪ggаgetรi〪t"},
+    {name = "solid opinion from a solid nigga", message = "รoli〪dopi〪ⴖi〪oⴖfromаรoli〪dⴖi〪ggа"},
+    {name = "dawg youre woke as fuck", message = "dаwgyou〪rewokeаรfu〪ck"},
+    {name = "realest shit ive ever heard", message = "reаleรtรhi〪ti〪veeverheаrd"},
+    {name = "holy fuck you aint playing", message = "holyfu〪ckyou〪аi〪ⴖtplаyi〪ⴖg"},
+    {name = "damn bro i felt that shit", message = "dаmⴖbroi〪feltthаtรhi〪t"},
+    {name = "you dropping some gems and these niggas sleeping 😭🙏", message = "you〪droppi〪ⴖgรomegemรаⴖdtheรeⴖi〪ggаรรleepi〪ⴖg😭🙏"},
+    {name = "bro speaking facts louder than my bitch", message = "broรpeаki〪ⴖgfаctรlou〪derthаⴖmybi〪tch"}
+}
+
+local function sendMessage(message)
+    local TextChatService = game:GetService("TextChatService")
+    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+    if textChannel then
+        textChannel:SendAsync(message)
+    end
+end
+
+for _, msg in pairs(messages) do
+    Tab:CreateButton({
+        Name = msg.name,
+        Callback = function()
+            sendMessage(msg.message)
+        end,
+    })
+end
+
+local TextChatService = game:GetService("TextChatService")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local function sendMessage(message)
+    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+    if textChannel then
+        textChannel:SendAsync(message)
+    end
+end
+
+local Tab = Window:CreateTab("homophobic", "Flag") -- Title, Image
+
+local Section = Tab:CreateSection("homophobic messages")
+
+local customText = "cryovergаyri〪ghtรbi〪tchаรรⴖi〪ggа"
+
+local Button = Tab:CreateButton({
+   Name = "cry over gay rights bitch ass nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cryhаrderyou〪di〪ckri〪di〪ⴖgfаg"
+
+local Button = Tab:CreateButton({
+   Name = "cry harder you dickriding fag",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "аi〪ⴖtⴖobodycаreаbou〪tyou〪rfru〪i〪tyаรร"
+
+local Button = Tab:CreateButton({
+   Name = "aint nobody care about your fruity ass",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "รi〪tdowⴖli〪mpwri〪รtbi〪tch"
+
+local Button = Tab:CreateButton({
+   Name = "sit down limp wrist bitch",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "tаlki〪ⴖgli〪keаwholefu〪cki〪ⴖgfаi〪ry"
+
+local Button = Tab:CreateButton({
+   Name = "talking like a whole fucking fairy",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "pi〪pedowⴖrаi〪ⴖbowdi〪ckรu〪cker"
+
+local Button = Tab:CreateButton({
+   Name = "pipe down rainbow dick sucker",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "аcti〪ⴖggаyerthаⴖаfu〪cki〪ⴖgpаrаde"
+
+local Button = Tab:CreateButton({
+   Name = "acting gayer than a fucking parade",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "pu〪tyou〪rgli〪tterdowⴖli〪lfаg"
+
+local Button = Tab:CreateButton({
+   Name = "put your glitter down lil fag",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "wаlkรtrаi〪ghtyou〪fru〪i〪tyfu〪ck"
+
+local Button = Tab:CreateButton({
+   Name = "walk straight you fruity fuck",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cryhаrdertrаⴖⴖy"
+
+local Button = Tab:CreateButton({
+   Name = "cry harder tranny",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "pri〪dewhoorebehаvi〪or"
+
+local Button = Tab:CreateButton({
+   Name = "pride whore behavior",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local Tab = Window:CreateTab("racism", "banana")
+local Section = Tab:CreateSection("racist messages")
+
+local customText = "blаckаⴖdbrokeⴖi〪ggа"
+
+local Button = Tab:CreateButton({
+   Name = "black and broke nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "borⴖyelli〪ⴖgoogаboogа"
+
+local Button = Tab:CreateButton({
+   Name = "born yelling ooga booga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cryrаci〪รmlooki〪ⴖgаpe"
+
+local Button = Tab:CreateButton({
+   Name = "cry racism looking ape",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "รwi〪ⴖgfromаtreedu〪mbаรร"
+
+local Button = Tab:CreateButton({
+   Name = "swing from a tree dumbass",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "ou〪tofbаⴖаⴖรⴖi〪ggа?lmаo"
+
+local Button = Tab:CreateButton({
+   Name = "out of banans nigga? lmao",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "du〪รtyรlааvelooki〪ⴖgbi〪tch"
+
+local Button = Tab:CreateButton({
+   Name = "dusty slave looking bitch",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "аcthu〪mаⴖforoⴖceyou〪ⴖi〪ggerholyรhi〪t"
+
+local Button = Tab:CreateButton({
+   Name = "act human for once you nigger holy shit",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "dri〪ⴖkmycu〪mi〪ⴖรteаdu〪ⴖhydrаtedаรรⴖi〪ggа"
+
+local Button = Tab:CreateButton({
+   Name = "drink my cum instead unhydrated ass nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+
+local customText = "รmellรli〪kewetdogⴖi〪ggа"
+
+local Button = Tab:CreateButton({
+   Name = "smells like wet dog nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "crytomywhi〪pаⴖdyou〪rbi〪tchаรรwi〪llgetrаpedⴖi〪gger"
+
+local Button = Tab:CreateButton({
+   Name = "cry to my whip and your bitch ass will get raped nigger",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local Tab = Window:CreateTab("shaming/slurs", "user")
+local Section = Tab:CreateSection("body/look shaming")
+
+local customText = "ⴖobodyаรkedcu〪mรki〪ⴖ"
+
+local Button = Tab:CreateButton({
+   Name = "nobody asked cumskin",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cryаbou〪ti〪tаi〪dรbаby"
+
+local Button = Tab:CreateButton({
+   Name = "cry about it aids baby",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "i〪ⴖbredcooⴖfааggot"
+
+local Button = Tab:CreateButton({
+   Name = "inbred coon faggot",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "ki〪llyou〪rรelfoxygeⴖthei〪f"
+
+local Button = Tab:CreateButton({
+   Name = "kill yourself oxygen thief",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "whi〪tetrаรhcu〪mgu〪zzler"
+
+local Button = Tab:CreateButton({
+   Name = "white trash cum guzzler",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "รpedlooki〪ⴖgаรร"
+
+local Button = Tab:CreateButton({
+   Name = "sped looking ass",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "รtu〪pi〪dⴖi〪ggerfааggothybri〪d"
+
+local Button = Tab:CreateButton({
+   Name = "stupid nigger faggot hybrid",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "аⴖythi〪ⴖgfortheru〪peeรli〪lcu〪ⴖtfr..you〪аi〪ⴖttu〪ff😭"
+
+local Button = Tab:CreateButton({
+   Name = "anything for the rupees lil cunt fr.. you aint tuff 😭",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cu〪rryรti〪ⴖki〪ⴖgаรรrаt"
+
+local Button = Tab:CreateButton({
+   Name = "curry stinking ass rat",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "di〪rtyfu〪cki〪ⴖgcu〪rrymu〪ⴖcher"
+
+local Button = Tab:CreateButton({
+   Name = "dirty fucking curry muncher",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "gowi〪peyou〪rаรรwi〪thyou〪rhаⴖdаgаi〪ⴖlmаo"
+
+local Button = Tab:CreateButton({
+   Name = "go wipe your ass with your hand again lmao",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "bi〪tchаรรdelhi〪doglmfаo"
+
+local Button = Tab:CreateButton({
+   Name = "bitch ass delhi dog lmfao",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "gobаcktoyou〪rรhi〪tri〪ver"
+
+local Button = Tab:CreateButton({
+   Name = "go back to your shit river",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "techรu〪pportรcаmmerаรรⴖi〪ggа"
+
+local Button = Tab:CreateButton({
+   Name = "tech support scammer ass nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "รⴖаkechаrmerdeรceⴖdаⴖt"
+
+local Button = Tab:CreateButton({
+   Name = "snake charmer descendant",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "bombаyรtreetรhi〪tter"
+
+local Button = Tab:CreateButton({
+   Name = "smells like wet dog nigga",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "mi〪croรoftรu〪pportfrаu〪dаรร"
+
+local Button = Tab:CreateButton({
+   Name = "microsoft support fraud ass",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "cowpi〪รรdri〪ⴖkerholyรhi〪t"
+
+local Button = Tab:CreateButton({
+   Name = "cow piss drinker holy shit",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "รаⴖdⴖi〪gger2.0"
+
+local Button = Tab:CreateButton({
+   Name = "sand nigger 2.0",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "fu〪ckou〪tofmywаybi〪tchаรรku〪rd"
+
+local Button = Tab:CreateButton({
+   Name = "fuck out of my way bitch ass kurd",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "wheretfi〪รyou〪rcou〪ⴖtrylol😭🙏"
+
+local Button = Tab:CreateButton({
+   Name = "where tf is your country lol 😭🙏",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "whowаⴖⴖаbu〪rⴖku〪rdรаⴖdi〪ⴖdi〪аⴖร?"
+
+local Button = Tab:CreateButton({
+   Name = "who wanna burn kurds and indians?",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
+
+local customText = "you〪rcou〪ⴖtrypoorаรfu〪ckdаmⴖ"
+
+local Button = Tab:CreateButton({
+   Name = "your country poor as fuck damn",
+   Callback = function()
+     sendMessage(customText)
+   end,
+})
