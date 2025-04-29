@@ -188,6 +188,56 @@ local Button = Tab:CreateButton({
 
 local Section = Tab:CreateSection("other stuff")
 
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+local stepped = RunService.Stepped
+local renderstepped = RunService.RenderStepped
+local heartbeat = RunService.Heartbeat
+
+local v3 = Vector3.new
+local cf = CFrame.new
+
+_G.hiddenfling = false
+
+local function gp(parent, name, className)
+	for _, v in ipairs(parent:GetChildren()) do
+		if v.Name == name and v:IsA(className) then
+			return v
+		end
+	end
+	return nil
+end
+
+Tab:CreateToggle({
+   Name = "Touch Fling",
+   CurrentValue = false,
+   Flag = "HiddenFlingToggle",
+   Callback = function(Value)
+      _G.hiddenfling = Value
+      if _G.hiddenfling then
+         spawn(function()
+            local hrp, char, vel, movel = nil, nil, nil, 0.1
+            while _G.hiddenfling do
+               heartbeat:Wait()
+
+               char = lp.Character
+               hrp = gp(char, "HumanoidRootPart", "BasePart") or gp(char, "Torso", "BasePart") or gp(char, "UpperTorso", "BasePart")
+               if not hrp then continue end
+
+               vel = hrp.Velocity
+               hrp.Velocity = vel * 10000 + v3(0, 10000, 0)
+               renderstepped:Wait()
+               hrp.Velocity = vel
+               stepped:Wait()
+               hrp.Velocity = vel + v3(0, movel, 0)
+               movel = -movel
+            end
+         end)
+      end
+   end
+})
+
 local FLYING = false
 
 local function sFLY()
