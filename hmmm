@@ -1,1035 +1,806 @@
-local player = game.Players.LocalPlayer
-local playerHeadIcon = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png"
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))() 
-local Players = game:GetService("Players")
-local playerName = Players.LocalPlayer.DisplayName
-local greetings = {
-   "Hello",
-   "Welcome",
-   "Hi",
-   "Greetings",
-   "Hey there",
-   "Good to see you",
-   "What's up",
-   "Nice to have you here",
-   "Yo",
-   "Ahoy",
-   "Salutations",
-   "Howdy",
-   "Good day",
-   "Pleasure to see you",
-   "Welcome back",
-   "Hey, buddy",
-   "Hello there",
-   "Hiya",
-   "Wassup",
-   "Ello gov'nor"
-}
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
 
-local randomGreeting = greetings[math.random(1, #greetings)]
-local playerName = Players.LocalPlayer.DisplayName
+-- Instances: 48 | Scripts: 9 | Modules: 0 | Tags: 0
+local G2L = {};
 
-local currentTime = os.date("%I:%M:%S %p")
-local TextChatService = game:GetService("TextChatService")
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
+-- StarterGui.bypasser
+local G2L = {}
 
-local function sendMessage(message)
-    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
-    if textChannel then
-        textChannel:SendAsync(message)
-    end
-end
-local customText = ""
-sendMessage(customText)
+G2L["1"] = Instance.new("ScreenGui")
+G2L["1"].Name = "bypasser"
+G2L["1"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+G2L["1"].ResetOnSpawn = false
+G2L["1"].IgnoreGuiInset = true
 
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/zynlope/rayfield/refs/heads/main/hmmm'))() 
-local title = randomGreeting .. ", " .. playerName .. " - " .. currentTime
+-- Parent to CoreGui (for executor-based scripts)
+G2L["1"].Parent = game:GetService("CoreGui")
 
-local Window = Rayfield:CreateWindow({
-   Name = title,
-   Icon = 85391913891710,
-   LoadingTitle = "zynlope's bypasser",
-   LoadingSubtitle = "discord: plusgiant",
+-- StarterGui.bypasser.mainframe
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["2"]["Size"] = UDim2.new(0, 459, 0, 257);
+G2L["2"]["Position"] = UDim2.new(0.21665, 0, 0.21661, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[mainframe]];
+G2L["2"]["BackgroundTransparency"] = 0.1;
 
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false,
 
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil,
-      FileName = "Big Hub"
-   },
-
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink",
-      RememberJoins = true
-   },
-
-   KeySystem = false,
-   KeySettings = {
-      Title = "hands up nigga",
-      Subtitle = "key system",
-      Note = "contact owner for key        discord: plusgiant",
-      FileName = "zynlope script",
-      SaveKey = false,
-      GrabKeyFromSite = false,
-      Key = {"ngtotheng"}
-   },
-
-   Theme = {
-      TextColor = Color3.fromRGB(240, 240, 240),
-      Background = Color3.fromRGB(15, 15, 15),
-      Topbar = Color3.fromRGB(13, 13, 13),
-      Shadow = Color3.fromRGB(20, 20, 20),
-
-      NotificationBackground = Color3.fromRGB(15, 15, 15),
-      NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
-
-      TabBackground = Color3.fromRGB(20, 20, 20),
-      TabStroke = Color3.fromRGB(85, 85, 85),
-      TabBackgroundSelected = Color3.fromRGB(144, 0, 255),
-      TabTextColor = Color3.fromRGB(255, 255, 255),
-      SelectedTabTextColor = Color3.fromRGB(255, 255, 255),
-
-      ElementBackground = Color3.fromRGB(20, 20, 20),
-      ElementBackgroundHover = Color3.fromRGB(30, 30, 30),
-      SecondaryElementBackground = Color3.fromRGB(25, 25, 25),
-      ElementStroke = Color3.fromRGB(38, 38, 38),
-      SecondaryElementStroke = Color3.fromRGB(40, 40, 40),
-            
-      SliderBackground = Color3.fromRGB(50, 138, 220),
-      SliderProgress = Color3.fromRGB(50, 138, 220),
-      SliderStroke = Color3.fromRGB(58, 163, 255),
-
-      ToggleBackground = Color3.fromRGB(18, 18, 18),
-      ToggleEnabled = Color3.fromRGB(144, 0, 255),
-      ToggleDisabled = Color3.fromRGB(100, 100, 100),
-      ToggleEnabledStroke = Color3.fromRGB(144, 0, 255),
-      ToggleDisabledStroke = Color3.fromRGB(125, 125, 125),
-      ToggleEnabledOuterStroke = Color3.fromRGB(100, 100, 100),
-      ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
-
-      DropdownSelected = Color3.fromRGB(20, 20, 20),
-      DropdownUnselected = Color3.fromRGB(30, 30, 30),
-
-      InputBackground = Color3.fromRGB(20, 20, 20),
-      InputStroke = Color3.fromRGB(65, 65, 65),
-      PlaceholderColor = Color3.fromRGB(178, 178, 178)
-   }
-})
+-- StarterGui.bypasser.mainframe.UICorner
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
 
 
 
-local Tab = Window:CreateTab("main", 4483362458) -- Title, Image
-local Paragraph = Tab:CreateParagraph({Title = "WARNING:", Content = "Set your account language to Қазақ Тілі for every bypass to work."})
-local TextChatService = game:GetService("TextChatService")
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
+-- StarterGui.bypasser.mainframe.label1
+G2L["4"] = Instance.new("TextLabel", G2L["2"]);
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["TextSize"] = 14;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["BackgroundTransparency"] = 1;
+G2L["4"]["Size"] = UDim2.new(0, 108, 0, 17);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Text"] = [[Zynlope's Bypasser]];
+G2L["4"]["Name"] = [[label1]];
+G2L["4"]["Position"] = UDim2.new(0.12514, 0, 0.01511, 0);
 
 
-	local function containsSwearWord(word)
-		for swear in pairs(swearWords) do
-			if word:lower():find(swear, 1, true) then
-				return true
+-- StarterGui.bypasser.mainframe.label2
+G2L["5"] = Instance.new("TextLabel", G2L["2"]);
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["TextSize"] = 15;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["5"]["TextColor3"] = Color3.fromRGB(71, 71, 71);
+G2L["5"]["BackgroundTransparency"] = 1;
+G2L["5"]["Size"] = UDim2.new(0, 120, 0, 17);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Text"] = [[by Zynlope/Plusgiant]];
+G2L["5"]["Name"] = [[label2]];
+G2L["5"]["Position"] = UDim2.new(0.36006, 0, 0.01399, 0);
+
+
+-- StarterGui.bypasser.mainframe.line2
+G2L["6"] = Instance.new("Frame", G2L["2"]);
+G2L["6"]["BorderSizePixel"] = 0;
+G2L["6"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57);
+G2L["6"]["Size"] = UDim2.new(0, 50, 0, -1);
+G2L["6"]["Position"] = UDim2.new(0.001, 0, 0.17, 0);
+G2L["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["6"]["Name"] = [[line2]];
+
+
+-- StarterGui.bypasser.mainframe.icon
+G2L["7"] = Instance.new("ImageLabel", G2L["2"]);
+G2L["7"]["BorderSizePixel"] = 0;
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["7"]["Image"] = [[rbxassetid://135522401035021]];
+G2L["7"]["Size"] = UDim2.new(0, 35, 0, 35);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["7"]["BackgroundTransparency"] = 1;
+G2L["7"]["Name"] = [[icon]];
+G2L["7"]["Position"] = UDim2.new(0.016, 0, 0.014, 0);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel
+G2L["8"] = Instance.new("TextLabel", G2L["2"]);
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["TextSize"] = 14;
+G2L["8"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["8"]["BackgroundTransparency"] = 1;
+G2L["8"]["Size"] = UDim2.new(0, 441, 0, 35);
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Text"] = [[       Enter message:]];
+G2L["8"]["Name"] = [[messagelabel]];
+G2L["8"]["Position"] = UDim2.new(0.01843, 0, 0.21503, 0);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.UICorner
+G2L["9"] = Instance.new("UICorner", G2L["8"]);
+G2L["9"]["CornerRadius"] = UDim.new(0, 5);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.UIStroke
+G2L["a"] = Instance.new("UIStroke", G2L["8"]);
+G2L["a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["a"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox
+G2L["b"] = Instance.new("TextBox", G2L["8"]);
+G2L["b"]["CursorPosition"] = -1;
+G2L["b"]["Name"] = [[bypassbox]];
+G2L["b"]["BorderSizePixel"] = 0;
+G2L["b"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["TextSize"] = 14;
+G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["b"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["b"]["PlaceholderText"] = [[Type here..]];
+G2L["b"]["Size"] = UDim2.new(0, 79, 0, 26);
+G2L["b"]["Position"] = UDim2.new(0.79, 0, 0.12, 0);
+G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["b"]["Text"] = [[]];
+G2L["b"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.UICorner
+G2L["c"] = Instance.new("UICorner", G2L["b"]);
+G2L["c"]["CornerRadius"] = UDim.new(0, 6);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.UIStroke
+G2L["d"] = Instance.new("UIStroke", G2L["b"]);
+G2L["d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["d"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.LocalScript
+G2L["e"] = Instance.new("LocalScript", G2L["b"]);
+
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.LocalScript
+G2L["f"] = Instance.new("LocalScript", G2L["b"]);
+
+
+
+-- StarterGui.bypasser.mainframe.mainlabel
+G2L["10"] = Instance.new("TextLabel", G2L["2"]);
+G2L["10"]["BorderSizePixel"] = 0;
+G2L["10"]["TextSize"] = 15;
+G2L["10"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["10"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["10"]["TextColor3"] = Color3.fromRGB(121, 121, 121);
+G2L["10"]["BackgroundTransparency"] = 1;
+G2L["10"]["Size"] = UDim2.new(0, 32, 0, 18);
+G2L["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["10"]["Text"] = [[ Main]];
+G2L["10"]["Name"] = [[mainlabel]];
+G2L["10"]["Position"] = UDim2.new(0.126, 0, 0.117, 0);
+
+
+-- StarterGui.bypasser.mainframe.line
+G2L["11"] = Instance.new("Frame", G2L["2"]);
+G2L["11"]["BorderSizePixel"] = 0;
+G2L["11"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57);
+G2L["11"]["Size"] = UDim2.new(0, -1, 0, 43);
+G2L["11"]["Position"] = UDim2.new(0.11, 0, 0.001, 0);
+G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["Name"] = [[line]];
+
+
+-- StarterGui.bypasser.mainframe.line4
+G2L["12"] = Instance.new("Frame", G2L["2"]);
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57);
+G2L["12"]["Size"] = UDim2.new(0, 459, 0, -1);
+G2L["12"]["Position"] = UDim2.new(0.001, 0, 0.91, 0);
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Name"] = [[line4]];
+
+
+-- StarterGui.bypasser.mainframe.invitelabel
+G2L["13"] = Instance.new("TextLabel", G2L["2"]);
+G2L["13"]["BorderSizePixel"] = 0;
+G2L["13"]["TextSize"] = 15;
+G2L["13"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["13"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["13"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["13"]["TextColor3"] = Color3.fromRGB(121, 121, 121);
+G2L["13"]["BackgroundTransparency"] = 1;
+G2L["13"]["Size"] = UDim2.new(0, 133, 0, 17);
+G2L["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["13"]["Text"] = [[discord.gg/fTHpFCa8GB]];
+G2L["13"]["Name"] = [[invitelabel]];
+G2L["13"]["Position"] = UDim2.new(0.017, 0, 0.918, 0);
+
+
+-- StarterGui.bypasser.mainframe.LocalScript
+G2L["14"] = Instance.new("LocalScript", G2L["2"]);
+
+
+
+-- StarterGui.bypasser.mainframe.spamlabel
+G2L["15"] = Instance.new("TextLabel", G2L["2"]);
+G2L["15"]["BorderSizePixel"] = 0;
+G2L["15"]["TextSize"] = 14;
+G2L["15"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["15"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["15"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["15"]["BackgroundTransparency"] = 1;
+G2L["15"]["Size"] = UDim2.new(0, 441, 0, 35);
+G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["15"]["Text"] = [[       Enter message to spam:]];
+G2L["15"]["Name"] = [[spamlabel]];
+G2L["15"]["Position"] = UDim2.new(0.0206, 0, 0.42903, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.UICorner
+G2L["16"] = Instance.new("UICorner", G2L["15"]);
+G2L["16"]["CornerRadius"] = UDim.new(0, 5);
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.UIStroke
+G2L["17"] = Instance.new("UIStroke", G2L["15"]);
+G2L["17"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["17"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.spambox
+G2L["18"] = Instance.new("TextBox", G2L["15"]);
+G2L["18"]["CursorPosition"] = -1;
+G2L["18"]["Name"] = [[spambox]];
+G2L["18"]["BorderSizePixel"] = 0;
+G2L["18"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["18"]["TextSize"] = 14;
+G2L["18"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["18"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["18"]["PlaceholderText"] = [[Type here..]];
+G2L["18"]["Size"] = UDim2.new(0, 79, 0, 26);
+G2L["18"]["Position"] = UDim2.new(0.79, 0, 0.12, 0);
+G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["Text"] = [[]];
+G2L["18"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.UICorner
+G2L["19"] = Instance.new("UICorner", G2L["18"]);
+G2L["19"]["CornerRadius"] = UDim.new(0, 6);
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.UIStroke
+G2L["1a"] = Instance.new("UIStroke", G2L["18"]);
+G2L["1a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["1a"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.LocalScript
+G2L["1b"] = Instance.new("LocalScript", G2L["18"]);
+
+
+
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.LocalScript
+G2L["1c"] = Instance.new("LocalScript", G2L["18"]);
+
+
+
+-- StarterGui.bypasser.mainframe.spammerlabel
+G2L["1d"] = Instance.new("TextLabel", G2L["2"]);
+G2L["1d"]["BorderSizePixel"] = 0;
+G2L["1d"]["TextSize"] = 15;
+G2L["1d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1d"]["TextColor3"] = Color3.fromRGB(121, 121, 121);
+G2L["1d"]["BackgroundTransparency"] = 1;
+G2L["1d"]["Size"] = UDim2.new(0, 60, 0, 18);
+G2L["1d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1d"]["Text"] = [[ Chat spam]];
+G2L["1d"]["Name"] = [[spammerlabel]];
+G2L["1d"]["Position"] = UDim2.new(0.02142, 0, 0.35046, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel
+G2L["1e"] = Instance.new("TextLabel", G2L["2"]);
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["TextSize"] = 14;
+G2L["1e"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["BackgroundTransparency"] = 1;
+G2L["1e"]["Size"] = UDim2.new(0, 441, 0, 35);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Text"] = [[       Toggle Spam:]];
+G2L["1e"]["Name"] = [[spamtogglelabel]];
+G2L["1e"]["Position"] = UDim2.new(0.0206, 0, 0.58857, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.UICorner
+G2L["1f"] = Instance.new("UICorner", G2L["1e"]);
+G2L["1f"]["CornerRadius"] = UDim.new(0, 5);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.UIStroke
+G2L["20"] = Instance.new("UIStroke", G2L["1e"]);
+G2L["20"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["20"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.chatfilter
+G2L["21"] = Instance.new("TextButton", G2L["1e"]);
+G2L["21"]["BorderSizePixel"] = 0;
+G2L["21"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["21"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["21"]["TextStrokeColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["21"]["TextSize"] = 14;
+G2L["21"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["21"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+G2L["21"]["Size"] = UDim2.new(0, 441, 0, 35);
+G2L["21"]["BackgroundTransparency"] = 1;
+G2L["21"]["Name"] = [[chatfilter]];
+G2L["21"]["BorderColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["21"]["Text"] = [[       Chat filter is having issues message]];
+G2L["21"]["Position"] = UDim2.new(-0.001, 0, 1.125, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.chatfilter.UIStroke
+G2L["22"] = Instance.new("UIStroke", G2L["21"]);
+G2L["22"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["22"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.chatfilter.UICorner
+G2L["23"] = Instance.new("UICorner", G2L["21"]);
+G2L["23"]["CornerRadius"] = UDim.new(0, 5);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.chatfilter.LocalScript
+G2L["24"] = Instance.new("LocalScript", G2L["21"]);
+
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.spamtoggle
+G2L["25"] = Instance.new("TextButton", G2L["1e"]);
+G2L["25"]["BorderSizePixel"] = 0;
+G2L["25"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["25"]["TextStrokeColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["25"]["TextSize"] = 14;
+G2L["25"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["25"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["25"]["Size"] = UDim2.new(0, 25, 0, 25);
+G2L["25"]["BackgroundTransparency"] = 0.1;
+G2L["25"]["Name"] = [[spamtoggle]];
+G2L["25"]["BorderColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["25"]["Text"] = [[]];
+G2L["25"]["Position"] = UDim2.new(0.90023, 0, 0.14286, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.spamtoggle.UICorner
+G2L["26"] = Instance.new("UICorner", G2L["25"]);
+G2L["26"]["CornerRadius"] = UDim.new(0, 6);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.spamtoggle.UIStroke
+G2L["27"] = Instance.new("UIStroke", G2L["25"]);
+G2L["27"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["27"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.unbanvc
+G2L["28"] = Instance.new("TextButton", G2L["1e"]);
+G2L["28"]["BorderSizePixel"] = 0;
+G2L["28"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["28"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["28"]["TextStrokeColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["28"]["TextSize"] = 14;
+G2L["28"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["28"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["28"]["Size"] = UDim2.new(0, 107, 0, 16);
+G2L["28"]["BackgroundTransparency"] = 1;
+G2L["28"]["Name"] = [[unbanvc]];
+G2L["28"]["BorderColor3"] = Color3.fromRGB(21, 21, 21);
+G2L["28"]["Text"] = [[     Unban voice chat]];
+G2L["28"]["Position"] = UDim2.new(0.754, 0, -3.416, 0);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.unbanvc.UICorner
+G2L["29"] = Instance.new("UICorner", G2L["28"]);
+G2L["29"]["CornerRadius"] = UDim.new(0, 4);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.unbanvc.UIStroke
+G2L["2a"] = Instance.new("UIStroke", G2L["28"]);
+G2L["2a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["2a"]["Color"] = Color3.fromRGB(51, 51, 51);
+
+
+-- StarterGui.bypasser.mainframe.spamtogglelabel.unbanvc.LocalScript
+G2L["2b"] = Instance.new("LocalScript", G2L["28"]);
+
+
+
+-- StarterGui.bypasser.mainframe.tiplabel
+G2L["2c"] = Instance.new("TextLabel", G2L["2"]);
+G2L["2c"]["BorderSizePixel"] = 0;
+G2L["2c"]["TextSize"] = 15;
+G2L["2c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["2c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2c"]["TextColor3"] = Color3.fromRGB(121, 121, 121);
+G2L["2c"]["BackgroundTransparency"] = 1;
+G2L["2c"]["Size"] = UDim2.new(0, 234, 0, 17);
+G2L["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2c"]["Text"] = [[tip: press semicolon (;) to focus on textbox.]];
+G2L["2c"]["Name"] = [[tiplabel]];
+G2L["2c"]["Position"] = UDim2.new(0.48977, 0, 0.918, 0);
+
+
+-- StarterGui.bypasser.mainframe.line3
+G2L["2d"] = Instance.new("Frame", G2L["2"]);
+G2L["2d"]["BorderSizePixel"] = 0;
+G2L["2d"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57);
+G2L["2d"]["Size"] = UDim2.new(0, 410, 0, -1);
+G2L["2d"]["Position"] = UDim2.new(0.108, 0, 0.1, 0);
+G2L["2d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2d"]["Name"] = [[line3]];
+
+
+-- StarterGui.bypasser.mainframe.fingerprint
+G2L["2e"] = Instance.new("ImageLabel", G2L["2"]);
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2e"]["Image"] = [[rbxassetid://87038228870555]];
+G2L["2e"]["Size"] = UDim2.new(0, 25, 0, 25);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["BackgroundTransparency"] = 1;
+G2L["2e"]["Name"] = [[fingerprint]];
+G2L["2e"]["Position"] = UDim2.new(0.885, 0, 0.763, 0);
+
+
+-- StarterGui.bypasser.LocalScript
+G2L["2f"] = Instance.new("LocalScript", G2L["1"]);
+
+
+
+-- StarterGui.bypasser.LocalScript
+G2L["30"] = Instance.new("LocalScript", G2L["1"]);
+
+
+
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.LocalScript
+local function C_e()
+local script = G2L["e"];
+	local TweenService = game:GetService("TweenService")
+	local TextBox = script.Parent
+	
+	-- Fixed values
+	local padding = 10
+	local minWidth = 79
+	local maxWidth = 400
+	local height = 26
+	
+	-- Set anchor to top-right so it grows left
+	TextBox.AnchorPoint = Vector2.new(1, 0)
+	TextBox.Size = UDim2.new(0, minWidth, 0, height)
+	
+	-- Original top-left was {0.79, 0}, {0.12, 0}
+	-- So with AnchorPoint = (1, 0), we need to shift right by the width (in scale units)
+	-- Assuming parent is full screen width, we'll convert pixel width to scale
+	local screenWidth = TextBox.Parent.AbsoluteSize.X
+	local widthScale = minWidth / screenWidth
+	
+	-- Adjust X so right edge lands where left edge was
+	TextBox.Position = UDim2.new(0.79 + widthScale, 0, 0.12, 0)
+	
+	-- Animate grow-left behavior
+	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+		task.wait()
+	
+		local textWidth = TextBox.TextBounds.X + padding
+		local newWidth = math.clamp(textWidth, minWidth, maxWidth)
+	
+		local targetSize = UDim2.new(0, newWidth, 0, height)
+		local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+	
+		TweenService:Create(TextBox, tweenInfo, {
+			Size = targetSize
+		}):Play()
+	end)
+	
+end;
+task.spawn(C_e);
+-- StarterGui.bypasser.mainframe.messagelabel.bypassbox.LocalScript
+local function C_f()
+local script = G2L["f"];
+	local UserInputService = game:GetService("UserInputService")
+local TextBox = script.Parent
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then return end
+
+	if input.UserInputType == Enum.UserInputType.Keyboard and (input.KeyCode == Enum.KeyCode.Semicolon or input.KeyCode == Enum.KeyCode.Unknown) then
+		TextBox:CaptureFocus()
+
+		task.delay(0, function()
+			TextBox.Text = ""
+		end)
+	end
+end)
+	
+end;
+task.spawn(C_f);
+-- StarterGui.bypasser.mainframe.LocalScript
+local function C_14()
+local script = G2L["14"];
+	local UserInputService = game:GetService("UserInputService")
+	
+	local frame = script.Parent  -- The MainFrame to drag
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		frame.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+end;
+task.spawn(C_14);
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.LocalScript
+local function C_1b()
+local script = G2L["1b"];
+	local TweenService = game:GetService("TweenService")
+	local TextBox = script.Parent
+	
+	-- Fixed values
+	local padding = 10
+	local minWidth = 79
+	local maxWidth = 400
+	local height = 26
+	
+	-- Set anchor to top-right so it grows left
+	TextBox.AnchorPoint = Vector2.new(1, 0)
+	TextBox.Size = UDim2.new(0, minWidth, 0, height)
+	
+	-- Original top-left was {0.79, 0}, {0.12, 0}
+	-- So with AnchorPoint = (1, 0), we need to shift right by the width (in scale units)
+	-- Assuming parent is full screen width, we'll convert pixel width to scale
+	local screenWidth = TextBox.Parent.AbsoluteSize.X
+	local widthScale = minWidth / screenWidth
+	
+	-- Adjust X so right edge lands where left edge was
+	TextBox.Position = UDim2.new(0.79 + widthScale, 0, 0.12, 0)
+	
+	-- Animate grow-left behavior
+	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+		task.wait()
+	
+		local textWidth = TextBox.TextBounds.X + padding
+		local newWidth = math.clamp(textWidth, minWidth, maxWidth)
+	
+		local targetSize = UDim2.new(0, newWidth, 0, height)
+		local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+	
+		TweenService:Create(TextBox, tweenInfo, {
+			Size = targetSize
+		}):Play()
+	end)
+	
+end;
+task.spawn(C_1b);
+-- StarterGui.bypasser.mainframe.spamlabel.spambox.LocalScript
+local function C_1c()
+local script = G2L["1c"];
+	local UserInputService = game:GetService("UserInputService")
+	local TextBox = script.Parent
+	
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then return end
+	
+		if input.KeyCode == Enum.KeyCode.Semicolon then
+			TextBox:CaptureFocus()
+		end
+	end)
+	
+end;
+task.spawn(C_1c);
+-- StarterGui.bypasser.mainframe.spamtogglelabel.chatfilter.LocalScript
+local function C_24()
+local script = G2L["24"];
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		local TextChatService = game:GetService("TextChatService")
+		local generalChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+	
+		if generalChannel then
+			local stackChar = utf8.char(0x2028)
+			local message = string.rep(stackChar, 50)
+	
+			pcall(function()
+				generalChannel:SendAsync(message)
+			end)
+		end
+	end)
+	
+end;
+task.spawn(C_24);
+-- StarterGui.bypasser.mainframe.spamtogglelabel.unbanvc.LocalScript
+local function C_2b()
+local script = G2L["2b"];
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		local VoiceChatService = game:GetService("VoiceChatService")
+	
+		pcall(function()
+			VoiceChatService:JoinVoice()
+		end)
+	end)
+	
+end;
+task.spawn(C_2b);
+-- StarterGui.bypasser.LocalScript
+local function C_2f()
+local script = G2L["2f"];
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	local frame = gui:WaitForChild("mainframe")
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		frame.Position = UDim2.new(
+			math.clamp(startPos.X.Scale + delta.X / gui.AbsoluteSize.X, 0, 1),
+			startPos.X.Offset + delta.X,
+			math.clamp(startPos.Y.Scale + delta.Y / gui.AbsoluteSize.Y, 0, 1),
+			startPos.Y.Offset + delta.Y
+		)
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+end;
+task.spawn(C_2f);
+-- StarterGui.bypasser.LocalScript
+local function C_30()
+local script = G2L["30"];
+	local TextChatService = game:GetService("TextChatService")
+	local UserInputService = game:GetService("UserInputService")
+	
+	local channel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
+	
+	local parentGui = script.Parent -- your LocalScript’s parent should be ScreenGui or somewhere above mainframe
+	local mainframe = parentGui:WaitForChild("mainframe")
+	
+	local BypassBox = mainframe:WaitForChild("messagelabel"):WaitForChild("bypassbox")
+	local SpamBox = mainframe:WaitForChild("spamlabel"):WaitForChild("spambox")
+	local SpamToggle = mainframe:WaitForChild("spamtogglelabel"):WaitForChild("spamtoggle")
+	
+	local spamming = false
+	local spamCoroutine
+	
+	local function transformText(inputText)
+		local transformedWords = {}
+	
+		for word in inputText:gmatch("%S+") do
+			word = word:gsub("l", "I")
+			if #word > 2 then
+				word = word:sub(1, 2) .. "ꜗ" .. word:sub(3)
+			end
+			table.insert(transformedWords, word)
+		end
+	
+		return table.concat(transformedWords, "")
+	end
+
+	local function sendMessage(msg)
+		if channel and msg ~= "" then
+			local success, err = pcall(function()
+				channel:SendAsync(msg)
+			end)
+			if not success then
+				warn("Failed to send message:", err)
 			end
 		end
-		return false
 	end
 	
-	local lowercaseBypasses = {
-	["fucking"] = "fบcking",
-	["fuck"] = "fบck",
-    ["fucked"] = "fบcked",
-    ["fuckidy"] = "fบckidy",
-    ["niggerest"] = "ⴖiggerest",
-	["nigger"] = "ⴖigger",
-	["niggers"] = "ⴖiggers",
-	["nigga"] = "ⴖigga",
-	["niggas"] = "ⴖiggas",
-	["ass"] = "аรร",
-    ["retard"] = "ꞅetard",
-    ["bastard"] = "bลstลrd",
-	["dumbass"] = "dบmbаรร",
-	["bitch"] = "bi〪tch",
-	["cunt"] = "cบnt",
-	["hoe"] = "һoe",
-	["hoes"] = "һoes",
-	["pussy"] = "pบssy",
-	["discord"] = "disִcord",
-	["shit"] = "shi〪t",
-	["raped"] = "rаped",
-	["rape"] = "rаpe",
-	["hitler"] = "hi〪tler",
-	["porn"] = "porⴖ",
-	["pornhub"] = "porⴖhub",
-	["dick"] = "diᲃk",
-	["dicks"] = "diᲃks",
-	["dildo"] = "dil〪do",
-	["dildos"] = "dil〪dos",
-	["kill"] = "kіll",
-	["yourself"] = "yoบrself",
-	["faggot"] = "fลggot",
-	["slut"] = "slบt",
-	["sex"] = "sеִx",
-	["cum"] = "cบm",
-	["boobs"] = "bоִоִbs",
-	["boob"] = "bоִоִb",
-	["lmao"] = "lmao",
-	["lmfao"] = "lmfao",
-	["suck"] = "sบck",
-	["sucker"] = "sบcker",
-	["dirty"] = "dіrty",
-	["fat"] = "fลt",
-	["raping"] = "rลping"
-}
-
-local uppercaseBypasses = {
-    ["FUCKING"] = "ꜰUCKING",
-	["FUCK"] = "ꜰUCK",
-    ["FUCKED"] = "ꜰUCKED",
-    ["FUCKIDY"] = "ꜰUCKIDY",
-    ["BITCH"] = "BI〪TCH",
-    ["ASS"] = "AS〪S",
-    ["NIGGA"] = "NI〪GGA",
-	["NIGGAS"] = "NI〪GGAS",
-    ["NIGGER"] = "NI〪GGER",
-    ["NIGGEREST"] = "NI〪GGEREST",
-	["NIGGERS"] = "NI〪GGERS",
-    ["HOE"] = "HOE",
-	["HOES"] = "HOES",
-    ["CUNT"] = "CUN〪T",
-	["DICK"] = "DI〪CK",
-	["HITLER"] = "HI〪TLER",
-	["PORN"] = "POR〪N",
-	["RAPING"] = "RАPI〪NG",
-	["RAPED"] = "RАPED",
-	["RAPE"] = "RАPE",
-	["FAGGOT"] = "ꜰAGGOT",
-	["DISCORD"] = "DISִCORD",
-	["SLUT"] = "SL〪UT",
-	["SEX"] = "SЕִX",
-	["LMAO"] = "LMAO",
-	["LMFAO"] = "LMFAO",
-	["DIRTY"] = "DІRTY",
-    ["PUSSY"] = "Р〪USSY"
-}
-
-local function transformText(inputText)
-    local transformedWords = {}
-
-    for word in inputText:gmatch("%S+") do
-        local cleaned = word:gsub("%p", "")
-        local lowered = cleaned:lower()
-        local replacedWord = word
-        local found = false
-
-        for bad, bypass in pairs(lowercaseBypasses) do
-            local startIndex, endIndex = lowered:find(bad, 1, true)
-            if startIndex then
-                -- Replace the matched part while preserving the rest
-                replacedWord = cleaned:sub(1, startIndex - 1) .. bypass .. cleaned:sub(endIndex + 1)
-                found = true
-                break
-            end
-        end
-
-        if not found then
-            for bad, bypass in pairs(uppercaseBypasses) do
-                local loweredBad = bad:lower()
-                local startIndex, endIndex = lowered:find(loweredBad, 1, true)
-                if startIndex then
-                    replacedWord = cleaned:sub(1, startIndex - 1) .. bypass .. cleaned:sub(endIndex + 1)
-                    found = true
-                    break
-                end
-            end
-        end
-
-        table.insert(transformedWords, replacedWord)
-    end
-
-    return table.concat(transformedWords, "")
-end
-
+	BypassBox.FocusLost:Connect(function(enterPressed)
+		if enterPressed and BypassBox.Text ~= "" then
+			local transformed = transformText(BypassBox.Text)
+			sendMessage(transformed)
+			BypassBox.Text = ""
+		end
+	end)
 	
-	local function sendMessage(message)
-		local channel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
-		if channel then
-			channel:SendAsync(message)
+	SpamToggle.MouseButton1Click:Connect(function()
+		spamming = not spamming
+	
+		if spamming then
+			SpamToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- white
+			SpamToggle.Text = "✔"
+			SpamToggle.TextSize = "12"
+			SpamToggle.TextColor3 = Color3.fromRGB(0, 0, 0) -- black
+	
+			spamCoroutine = coroutine.create(function()
+				while spamming do
+					local transformed = transformText(SpamBox.Text)
+					sendMessage(transformed)
+					wait(1)
+				end
+			end)
+			coroutine.resume(spamCoroutine)
+		else
+			SpamToggle.BackgroundColor3 = Color3.fromRGB(20, 20, 20) -- dark gray
+			SpamToggle.Text = ""
 		end
-	end
-
-local Input = Tab:CreateInput({
-    Name = "Auto bypasser",
-    CurrentValue = "",
-    PlaceholderText = "message here",
-    RemoveTextAfterFocusLost = true,
-    Flag = "Input1",
-    Callback = function(Text)
-        local transformedText = transformText(Text)
-        local lines = {}
-        table.insert(lines, transformedText)
-
-        for _, line in ipairs(lines) do
-            sendMessage(line)
-            wait(0)
-        end
-    end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "Unban voice chat",
-   Callback = function()
-game:GetService("VoiceChatService"):joinVoice()
- end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "Rejoin",
-   Callback = function()
- game:GetService("TeleportService"):Teleport(game.PlaceId)
-	 wait()
- 
- wait();
- end,
-})
-
-local Section = Tab:CreateSection("other stuff")
-
-local Players = game:GetService("Players")
-local lp = Players.LocalPlayer
-local RunService = game:GetService("RunService")
-local stepped = RunService.Stepped
-local renderstepped = RunService.RenderStepped
-local heartbeat = RunService.Heartbeat
-
-local v3 = Vector3.new
-local cf = CFrame.new
-
-_G.hiddenfling = false
-
-local function gp(parent, name, className)
-	for _, v in ipairs(parent:GetChildren()) do
-		if v.Name == name and v:IsA(className) then
-			return v
+	end)
+	
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if input.KeyCode == Enum.KeyCode.Slash and not gameProcessed then
+			BypassBox:CaptureFocus()
 		end
-	end
-	return nil
-end
-
-Tab:CreateToggle({
-   Name = "Touch Fling",
-   CurrentValue = false,
-   Flag = "HiddenFlingToggle",
-   Callback = function(Value)
-      _G.hiddenfling = Value
-      if _G.hiddenfling then
-         spawn(function()
-            local hrp, char, vel, movel = nil, nil, nil, 0.1
-            while _G.hiddenfling do
-               heartbeat:Wait()
-
-               char = lp.Character
-               hrp = gp(char, "HumanoidRootPart", "BasePart") or gp(char, "Torso", "BasePart") or gp(char, "UpperTorso", "BasePart")
-               if not hrp then continue end
-
-               vel = hrp.Velocity
-               hrp.Velocity = vel * 10000 + v3(0, 10000, 0)
-               renderstepped:Wait()
-               hrp.Velocity = vel
-               stepped:Wait()
-               hrp.Velocity = vel + v3(0, movel, 0)
-               movel = -movel
-            end
-         end)
-      end
-   end
-})
-
-local FLYING = false
-
-local function sFLY()
-    FLYING = true
-    repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-    local T = game.Players.LocalPlayer.Character.PrimaryPart
-    local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
-    local SPEED = 0
-    local BG = Instance.new('BodyGyro')
-    local BV = Instance.new('BodyVelocity')
-
-    BG.P = 9e4
-    BG.Parent = T
-    BV.Parent = T
-    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-    BG.cframe = T.CFrame
-    BV.velocity = Vector3.new(0, 0, 0)
-    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
-
-    local userInputService = game:GetService("UserInputService")
-
-    local humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
-    humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-    humanoid.PlatformStand = true
-
-    userInputService.InputBegan:Connect(function(input, gameProcessed)
-        if gameProcessed then return end
-        if input.UserInputType == Enum.UserInputType.Keyboard then
-            if input.KeyCode == Enum.KeyCode.W then CONTROL.F = 1 end
-            if input.KeyCode == Enum.KeyCode.S then CONTROL.B = -1 end
-            if input.KeyCode == Enum.KeyCode.A then CONTROL.L = -1 end
-            if input.KeyCode == Enum.KeyCode.D then CONTROL.R = 1 end
-            if input.KeyCode == Enum.KeyCode.Space then CONTROL.E = 1 end
-            if input.KeyCode == Enum.KeyCode.LeftControl then CONTROL.Q = -1 end
-        end
-    end)
-
-    userInputService.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.Keyboard then
-            if input.KeyCode == Enum.KeyCode.W then CONTROL.F = 0 end
-            if input.KeyCode == Enum.KeyCode.S then CONTROL.B = 0 end
-            if input.KeyCode == Enum.KeyCode.A then CONTROL.L = 0 end
-            if input.KeyCode == Enum.KeyCode.D then CONTROL.R = 0 end
-            if input.KeyCode == Enum.KeyCode.Space then CONTROL.E = 0 end
-            if input.KeyCode == Enum.KeyCode.LeftControl then CONTROL.Q = 0 end
-        end
-    end)
-
-    task.spawn(function()
-    while FLYING do
-        task.wait()
-
-        -- Get camera directions
-        local cam = workspace.CurrentCamera
-        local forward = cam.CFrame.LookVector
-        local right = cam.CFrame.RightVector
-        local up = Vector3.new(0, 1, 0)
-
-        -- Calculate movement direction based on input
-        local moveDir = (forward * (CONTROL.F + CONTROL.B)) + (right * (CONTROL.R + CONTROL.L)) + (up * (CONTROL.E + CONTROL.Q))
-        if moveDir.Magnitude > 0 then
-            moveDir = moveDir.Unit
-            SPEED = 50
-        else
-            SPEED = 0
-        end
-
-        BV.Velocity = moveDir * SPEED
-        BG.CFrame = cam.CFrame
-    end
-
-    -- Cleanup
-    BG:Destroy()
-    BV:Destroy()
-    humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-    humanoid.PlatformStand = false
-end)
-
-end
-
-local function NOFLY()
-    FLYING = false
-    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
-        local humanoid = game.Players.LocalPlayer.Character.Humanoid
-        humanoid.PlatformStand = false
-        humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-    end
-end
-
-getgenv().WalkSpeedValue = 25
-local BunnyHopActive = false
-local BunnyHopConnection
-
-local Player = game:GetService("Players").LocalPlayer
-local RunService = game:GetService("RunService")
-local Humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") or Player.CharacterAdded:Wait():WaitForChild("Humanoid")
-
-RunService.Heartbeat:Connect(function()
-    if BunnyHopActive and Humanoid.WalkSpeed ~= getgenv().WalkSpeedValue then
-        Humanoid.WalkSpeed = getgenv().WalkSpeedValue
-    end
-end)
-
-getgenv().WalkSpeedValue = 25
-local BunnyHopActive = false
-local BunnyHopConnection
-
-local Player = game:GetService("Players").LocalPlayer
-local RunService = game:GetService("RunService")
-local Humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") or Player.CharacterAdded:Wait():WaitForChild("Humanoid")
-
-RunService.Heartbeat:Connect(function()
-    if BunnyHopActive and Humanoid.WalkSpeed ~= getgenv().WalkSpeedValue then
-        Humanoid.WalkSpeed = getgenv().WalkSpeedValue
-    end
-end)
-
-local FlyToggle = Tab:CreateToggle({
-    Name = "Fly/Unfly",
-    CurrentValue = false,
-    Flag = "FlyToggle",
-    Callback = function(Value)
-        if Value then
-            if FLYING == false then
-                sFLY()
-            end
-        else
-            if FLYING == true then
-                NOFLY()
-            end
-        end
-    end,
-})
-
--- Cria o alternador com uma tecla
-local FlyKeybind = Tab:CreateKeybind({
-    Name = "Fly keybind",
-    CurrentKeybind = "F", 
-    HoldToInteract = false,
-    Flag = "FlyKeybind", 
-    Callback = function(Keybind)
-        if FLYING then
-            NOFLY()
-        else
-            sFLY()
-        end
-    end,
-})
-
-local Input = Tab:CreateInput({
-   Name = "Walkspeed",
-   CurrentValue = "",
-   PlaceholderText = "enter walkspeed",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Value)
-   getgenv().WalkSpeedValue = Value; --set your desired walkspeed here
-local Player = game:service'Players'.LocalPlayer;
-Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
-Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
-end)
-Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
-   end,
-})
-
-local Input = Tab:CreateInput({
-   Name = "Max Camera Zoom",
-   CurrentValue = "",
-   PlaceholderText = "enter zoom",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Value)
-        game.Players.LocalPlayer.CameraMaxZoomDistance = (Value)
-
-   end,
-})
-
-local Input = Tab:CreateInput({
-   Name = "Jumppower",
-   CurrentValue = "",
-   PlaceholderText = "enter jumppower",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Value)
- getgenv().JumpPowerValue = Value; --set your desired walkspeed here
-local Player = game:service'Players'.LocalPlayer;
-Player.Character.Humanoid:GetPropertyChangedSignal'JumpPower':Connect(function()
-Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
-end)
-Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
-   end,
-})
-
-local Input = Tab:CreateInput({
-   Name = "FOV (Original = 70)",
-   CurrentValue = "",
-   PlaceholderText = "enter FOV",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Value)
-        game.Players.LocalPlayer.CameraMaxZoomDistance = (Value)
-
-   end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "CS Resoluiton",
-   Callback = function()
-   getgenv().Resolution = {
-    [".gg/scripters"] = 0.7
-}
-
-local Camera = workspace.CurrentCamera
-if getgenv().gg_scripters == nil then
-    game:GetService("RunService").RenderStepped:Connect(
-        function()
-            Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolution[".gg/scripters"], 0, 0, 0, 1)
-        end
-    )
-end
-getgenv().gg_scripters = "Aori0001"
-   end,
-})
-
-local Tab = Window:CreateTab("normal", "heart") -- Title, Image
-
-local Section = Tab:CreateSection("usual messages")
-
--- List of messages and their display names
-local messages = {
-    {name = "got discord?", message = "gotdisᲃord?"},
-    {name = "is this retard serious lmao 😭", message = "isthisꞅetardseriouslmao😭"},
-    {name = "wanna hop on vc instead lil nigga?", message = "wannahoponvcinsteadlilⴖigga?"},
-    {name = "u look retarded yet so rapeable..", message = "ulookꞅetardedyetsorаpeable.."},
-    {name = "whats the sauce of being this type of a dumbass?", message = "whatsthesauceofbeingthistypeofadum〪baรร?"},
-    {name = "this nigga gets it", message = "thi〪รⴖi〪ggаgetรi〪t"},
-    {name = "solid opinion from a solid nigga", message = "รoli〪dopi〪ⴖi〪oⴖfromаรoli〪dⴖi〪ggа"},
-    {name = "dawg youre woke as fuck", message = "dаwgyou〪rewokeаรfu〪ck"},
-    {name = "realest shit ive ever heard", message = "reаleรtรhi〪ti〪veeverheаrd"},
-    {name = "holy fuck you aint playing", message = "holyfu〪ckyou〪аi〪ⴖtplаyi〪ⴖg"},
-    {name = "damn bro i felt that shit", message = "dаmⴖbroi〪feltthаtรhi〪t"},
-    {name = "you dropping some gems and these niggas sleeping 😭🙏", message = "you〪droppi〪ⴖgรomegemรаⴖdtheรeⴖi〪ggаรรleepi〪ⴖg😭🙏"},
-    {name = "bro speaking facts louder than my bitch", message = "broรpeаki〪ⴖgfаctรlou〪derthаⴖmybi〪tch"}
-}
-
-local function sendMessage(message)
-    local TextChatService = game:GetService("TextChatService")
-    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
-    if textChannel then
-        textChannel:SendAsync(message)
-    end
-end
-
-for _, msg in pairs(messages) do
-    Tab:CreateButton({
-        Name = msg.name,
-        Callback = function()
-            sendMessage(msg.message)
-        end,
-    })
-end
-
-local TextChatService = game:GetService("TextChatService")
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
-
-local function sendMessage(message)
-    local textChannel = TextChatService:WaitForChild("TextChannels"):FindFirstChild("RBXGeneral")
-    if textChannel then
-        textChannel:SendAsync(message)
-    end
-end
-
-local Tab = Window:CreateTab("homophobic", "Flag") -- Title, Image
-
-local Section = Tab:CreateSection("homophobic messages")
-
-local customText = "cryovergаyri〪ghtรbi〪tchаรรⴖi〪ggа"
-
-local Button = Tab:CreateButton({
-   Name = "cry over gay rights bitch ass nigga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cryhаrderyou〪di〪ckri〪di〪ⴖgfаg"
-
-local Button = Tab:CreateButton({
-   Name = "cry harder you dickriding fag",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "аi〪ⴖtⴖobodycаreаbou〪tyou〪rfru〪i〪tyаรร"
-
-local Button = Tab:CreateButton({
-   Name = "aint nobody care about your fruity ass",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "รi〪tdowⴖli〪mpwri〪รtbi〪tch"
-
-local Button = Tab:CreateButton({
-   Name = "sit down limp wrist bitch",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "tаlki〪ⴖgli〪keаwholefu〪cki〪ⴖgfаi〪ry"
-
-local Button = Tab:CreateButton({
-   Name = "talking like a whole fucking fairy",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "pi〪pedowⴖrаi〪ⴖbowdi〪ckรu〪cker"
-
-local Button = Tab:CreateButton({
-   Name = "pipe down rainbow dick sucker",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "аcti〪ⴖggаyerthаⴖаfu〪cki〪ⴖgpаrаde"
-
-local Button = Tab:CreateButton({
-   Name = "acting gayer than a fucking parade",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "pu〪tyou〪rgli〪tterdowⴖli〪lfаg"
-
-local Button = Tab:CreateButton({
-   Name = "put your glitter down lil fag",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "wаlkรtrаi〪ghtyou〪fru〪i〪tyfu〪ck"
-
-local Button = Tab:CreateButton({
-   Name = "walk straight you fruity fuck",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cryhаrdertrаⴖⴖy"
-
-local Button = Tab:CreateButton({
-   Name = "cry harder tranny",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "pri〪dewhoorebehаvi〪or"
-
-local Button = Tab:CreateButton({
-   Name = "pride whore behavior",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local Tab = Window:CreateTab("racism", "banana")
-local Section = Tab:CreateSection("racist messages")
-
-local customText = "blаckаⴖdbrokeⴖi〪ggа"
-
-local Button = Tab:CreateButton({
-   Name = "black and broke nigga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "borⴖyelli〪ⴖgoogаboogа"
-
-local Button = Tab:CreateButton({
-   Name = "born yelling ooga booga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cryrаci〪รmlooki〪ⴖgаpe"
-
-local Button = Tab:CreateButton({
-   Name = "cry racism looking ape",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "รwi〪ⴖgfromаtreedu〪mbаรร"
-
-local Button = Tab:CreateButton({
-   Name = "swing from a tree dumbass",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "ou〪tofbаⴖаⴖรⴖi〪ggа?lmаo"
-
-local Button = Tab:CreateButton({
-   Name = "out of banans nigga? lmao",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "du〪รtyรlааvelooki〪ⴖgbi〪tch"
-
-local Button = Tab:CreateButton({
-   Name = "dusty slave looking bitch",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "аcthu〪mаⴖforoⴖceyou〪ⴖi〪ggerholyรhi〪t"
-
-local Button = Tab:CreateButton({
-   Name = "act human for once you nigger holy shit",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "dri〪ⴖkmycu〪mi〪ⴖรteаdu〪ⴖhydrаtedаรรⴖi〪ggа"
-
-local Button = Tab:CreateButton({
-   Name = "drink my cum instead unhydrated ass nigga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-
-local customText = "รmellรli〪kewetdogⴖi〪ggа"
-
-local Button = Tab:CreateButton({
-   Name = "smells like wet dog nigga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "crytomywhi〪pаⴖdyou〪rbi〪tchаรรwi〪llgetrаpedⴖi〪gger"
-
-local Button = Tab:CreateButton({
-   Name = "cry to my whip and your bitch ass will get raped nigger",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local Tab = Window:CreateTab("shaming/slurs", "user")
-local Section = Tab:CreateSection("body/look shaming")
-
-local customText = "ⴖobodyаรkedcu〪mรki〪ⴖ"
-
-local Button = Tab:CreateButton({
-   Name = "nobody asked cumskin",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cryаbou〪ti〪tаi〪dรbаby"
-
-local Button = Tab:CreateButton({
-   Name = "cry about it aids baby",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "i〪ⴖbredcooⴖfааggot"
-
-local Button = Tab:CreateButton({
-   Name = "inbred coon faggot",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "ki〪llyou〪rรelfoxygeⴖthei〪f"
-
-local Button = Tab:CreateButton({
-   Name = "kill yourself oxygen thief",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "whi〪tetrаรhcu〪mgu〪zzler"
-
-local Button = Tab:CreateButton({
-   Name = "white trash cum guzzler",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "รpedlooki〪ⴖgаรร"
-
-local Button = Tab:CreateButton({
-   Name = "sped looking ass",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "รtu〪pi〪dⴖi〪ggerfааggothybri〪d"
-
-local Button = Tab:CreateButton({
-   Name = "stupid nigger faggot hybrid",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "аⴖythi〪ⴖgfortheru〪peeรli〪lcu〪ⴖtfr..you〪аi〪ⴖttu〪ff😭"
-
-local Button = Tab:CreateButton({
-   Name = "anything for the rupees lil cunt fr.. you aint tuff 😭",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cu〪rryรti〪ⴖki〪ⴖgаรรrаt"
-
-local Button = Tab:CreateButton({
-   Name = "curry stinking ass rat",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "di〪rtyfu〪cki〪ⴖgcu〪rrymu〪ⴖcher"
-
-local Button = Tab:CreateButton({
-   Name = "dirty fucking curry muncher",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "gowi〪peyou〪rаรรwi〪thyou〪rhаⴖdаgаi〪ⴖlmаo"
-
-local Button = Tab:CreateButton({
-   Name = "go wipe your ass with your hand again lmao",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "bi〪tchаรรdelhi〪doglmfаo"
-
-local Button = Tab:CreateButton({
-   Name = "bitch ass delhi dog lmfao",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "gobаcktoyou〪rรhi〪tri〪ver"
-
-local Button = Tab:CreateButton({
-   Name = "go back to your shit river",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "techรu〪pportรcаmmerаรรⴖi〪ggа"
-
-local Button = Tab:CreateButton({
-   Name = "tech support scammer ass nigga",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "รⴖаkechаrmerdeรceⴖdаⴖt"
-
-local Button = Tab:CreateButton({
-   Name = "snake charmer descendant",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "bombаyรtreetรhi〪tter"
-
-local Button = Tab:CreateButton({
-   Name = "bombay street shitter",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "mi〪croรoftรu〪pportfrаu〪dаรร"
-
-local Button = Tab:CreateButton({
-   Name = "microsoft support fraud ass",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "cowpi〪รรdri〪ⴖkerholyรhi〪t"
-
-local Button = Tab:CreateButton({
-   Name = "cow piss drinker holy shit",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "รаⴖdⴖi〪gger2.0"
-
-local Button = Tab:CreateButton({
-   Name = "sand nigger 2.0",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "fu〪ckou〪tofmywаybi〪tchаรรku〪rd"
-
-local Button = Tab:CreateButton({
-   Name = "fuck out of my way bitch ass kurd",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "wheretfi〪รyou〪rcou〪ⴖtrylol😭🙏"
-
-local Button = Tab:CreateButton({
-   Name = "where tf is your country lol 😭🙏",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "whowаⴖⴖаbu〪rⴖku〪rdรаⴖdi〪ⴖdi〪аⴖร?"
-
-local Button = Tab:CreateButton({
-   Name = "who wanna burn kurds and indians?",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
-
-local customText = "you〪rcou〪ⴖtrypoorаรfu〪ckdаmⴖ"
-
-local Button = Tab:CreateButton({
-   Name = "your country poor as fuck damn",
-   Callback = function()
-     sendMessage(customText)
-   end,
-})
+	end)
+	
+end;
+task.spawn(C_30);
+
+return G2L["1"], require;
